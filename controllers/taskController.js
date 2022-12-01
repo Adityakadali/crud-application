@@ -1,5 +1,18 @@
 const TaskModel = require("../models/taskModel");
 
+/**
+ * @openapi
+ * /:
+ * /tasks:
+ *   get:
+ *     description: Gets all tasks in database
+ *     responses:
+ *       200:
+ *         description: returns all tasks in database as an object.
+ *       500:
+ *         description: server error
+ */
+
 const GetTasks = async (req, res) => {
   try {
     const tasks = await TaskModel.find();
@@ -10,6 +23,32 @@ const GetTasks = async (req, res) => {
       .json({ status: 500, message: "server error", data: err });
   }
 };
+
+/**
+ * @openapi
+ * /:
+ * /tasks:
+ *   post:
+ *     description: Adds task to the database
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/x-www-form-urlencoded:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               task:
+ *                 type: string
+ *             required:
+ *               - task
+ *     responses:
+ *       200:
+ *         description: returns success message with the added task.
+ *       400:
+ *         description: task cannot be empty
+ *       500:
+ *         description: server error
+ */
 
 const AddTask = async (req, res) => {
   try {
@@ -39,6 +78,35 @@ const AddTask = async (req, res) => {
       .json({ status: 500, message: "server error", data: err });
   }
 };
+
+/**
+ * @openapi
+ * /:
+ * /tasks:
+ *   put:
+ *     description: edit tasks in database
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/x-www-form-urlencoded:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               id:
+ *                 type: string
+ *               updatedTask:
+ *                 type: string
+ *             required:
+ *               - id
+ *               - updatedTask
+ *     responses:
+ *       200:
+ *         description: returns success message with the edited task.
+ *       400:
+ *         description: id or task cannot be empty
+ *       500:
+ *         description: server error
+ */
 
 const EditTask = async (req, res) => {
   try {
@@ -70,6 +138,32 @@ const EditTask = async (req, res) => {
       .json({ status: 500, message: "server error", data: err });
   }
 };
+
+/**
+ * @openapi
+ * /:
+ * /tasks:
+ *   delete:
+ *     description: edit tasks in database
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/x-www-form-urlencoded:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               id:
+ *                 type: string
+ *             required:
+ *               - id
+ *     responses:
+ *       200:
+ *         description: returns success message with the deleted task.
+ *       400:
+ *         description: id or task cannot be empty
+ *       500:
+ *         description: server error
+ */
 
 const DeleteTask = async (req, res) => {
   try {
