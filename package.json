@@ -4,7 +4,7 @@
   "description": "A Simple CRUD Application",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "start": "node app.js",
     "dev": "nodemon app.js"
   },
@@ -20,8 +20,11 @@
   },
   "homepage": "https://github.com/Adityakadali/crud-application#readme",
   "dependencies": {
+    "chai": "^4.3.7",
+    "chai-http": "^4.3.0",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "mocha": "^10.1.0",
     "mongoose": "^6.7.5",
     "swagger-jsdoc": "^6.2.5",
     "swagger-ui-express": "^4.6.0"
