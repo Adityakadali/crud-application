@@ -1,24 +1,26 @@
 const { expect, assert } = require("chai");
 const chai = require("chai");
 const chaiHttp = require("chai-http");
-const { deleteOne } = require("../models/taskModel");
-const app = `http://localhost/${process.env.PORT}`;
+const app = require("../app");
 chai.use(chaiHttp);
+chai.should();
 
-describe("Testing tasks", () => {
-  let task, id;
+describe("Testing tasks", async () => {
+  let id;
   // Get tasks
-  it("Getting tasks...", () => {
+  it("Getting tasks...", (done) => {
     chai
       .request(app)
       .get("/tasks")
       .end((err, res) => {
-        expect(res).to.have.status(200);
+        res.should.have.status(200);
+        res.should.be.a("object");
+        done();
       });
   });
 
   // Add Task
-  it("Adding tasks...", async (done) => {
+  it("Adding tasks...", (done) => {
     chai
       .request(app)
       .post("/tasks")
@@ -26,7 +28,40 @@ describe("Testing tasks", () => {
         task: "testing task",
       })
       .end((err, res) => {
-        expect(res).to.have.status(200);
+        res.should.have.status(200);
+        res.should.be.a("object");
+        id = res.data?._id;
+        done();
+      });
+  });
+
+  // editing task
+  it("Editing tasks...", (done) => {
+    chai
+      .request(app)
+      .put("/tasks")
+      .send({
+        id: id,
+        updatedTask: "edited",
+      })
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.should.be.a("object");
+        done();
+      });
+  });
+
+  //delete task
+  it("Deleting tasks...", (done) => {
+    chai
+      .request(app)
+      .delete("/tasks")
+      .send({
+        id: id,
+      })
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.should.be.a("object");
         done();
       });
   });

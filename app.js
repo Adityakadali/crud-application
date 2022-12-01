@@ -21,3 +21,5 @@ app.get("/api-docs", swaggerUi.setup(openapiSpecification));
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
 });
+
+module.exports = app;
