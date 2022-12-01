@@ -4,6 +4,8 @@ const task = require("./routes/taskRoute");
 const swaggerUi = require("swagger-ui-express");
 const openapiSpecification = require("./utils/swagger");
 
+const port = process.env.PORT || 4000;
+
 require("./config/db").ConnectDB();
 
 const app = express();
@@ -16,6 +18,6 @@ app.use("/tasks", task);
 app.use("/api-docs", swaggerUi.serve);
 app.get("/api-docs", swaggerUi.setup(openapiSpecification));
 
-app.listen(4000, () => {
-  console.log(`listening on port 4000`);
+app.listen(port, () => {
+  console.log(`listening on port ${port}`);
 });
