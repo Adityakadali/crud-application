@@ -15,9 +15,10 @@ A Simple CRUD Application
 ## Running this project locally
 
 1. clone this project
-2. Add .env file and add these variables
+2. run `npm install`
+3. Add .env file and add these variables
 
 ```
 PORT = 4000
-MONGO_URL = your_mongoDB_url
+MONGO_URL = mongodb://localhost:27017/tasks
 ```
