@@ -52,3 +52,5 @@ npm test
 ## Author
 
 - Aditya Kadali
+  - [Linkedin](https://www.linkedin.com/in/aditya-kadali/)
+  - [Twitter](https://twitter.com/adityakadali)
