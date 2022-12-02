@@ -30,7 +30,7 @@ describe("Testing tasks", async () => {
       .end((err, res) => {
         res.should.have.status(200);
         res.should.be.a("object");
-        id = res.data?._id;
+        id = res.body.data._id;
         done();
       });
   });
