@@ -12,13 +12,43 @@ A Simple CRUD Application
 - Express
 - Mongoose
 
-## Running this project locally
+## Postman collection
+
+- [API Collection](./Tasks.postman_collection.json)
+
+## Settingup this project locally
 
 1. clone this project
-2. run `npm install`
-3. Add .env file and add these variables
 
+2. install node modules
+
+   ```bash
+   git clone "https://github.com/Adityakadali/crud-application"
+   cd crud-application
+   npm install
+   ```
+
+3. Add .env with your variables
+
+   **sample.env**
+
+   ```
+   PORT = 4000
+   MONGO_URL = mongodb://localhost:27017/tasks
+   ```
+
+### Running this project locally
+
+```bash
+npm run dev
 ```
-PORT = 4000
-MONGO_URL = mongodb://localhost:27017/tasks
+
+### Testing this project locally
+
+```bash
+npm test
 ```
+
+## Author
+
+- Aditya Kadali

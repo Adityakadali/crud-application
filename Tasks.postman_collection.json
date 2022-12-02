@@ -1,0 +1,100 @@
+{
+  "info": {
+    "_postman_id": "c6e65c5b-ea75-43b5-bdcd-27531eacea5d",
+    "name": "Tasks",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "addTasks",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "task",
+              "value": "List all",
+              "type": "default"
+            }
+          ]
+        },
+        "url": {
+          "raw": "localhost:4000/tasks",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["tasks"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "getTasks",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:4000/tasks",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["tasks"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "editTask",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "id",
+              "value": "6388ce1c3252c49c7c429dfc",
+              "type": "default"
+            },
+            {
+              "key": "updatedTask",
+              "value": "Updated one 2",
+              "type": "default"
+            }
+          ]
+        },
+        "url": {
+          "raw": "localhost:4000/tasks",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["tasks"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "deleteTask",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "id",
+              "value": "6388ce5ae2dd97ca5257f91b",
+              "type": "default"
+            }
+          ]
+        },
+        "url": {
+          "raw": "localhost:4000/tasks",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["tasks"]
+        }
+      },
+      "response": []
+    }
+  ]
+}
